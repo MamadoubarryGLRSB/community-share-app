@@ -1,26 +1,14 @@
-const express = require('express');
-const mongoose = require('mongoose');
 const path = require('path');
-const dotenv = require('dotenv');
-const morgan = require('morgan');
 const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
 const helmet = require('helmet');
-
-// Charger les variables d'environnement
-dotenv.config();
-
-// Connexion à MongoDB
-mongoose
-  .connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
-  .then(() => console.log('MongoDB connecté'))
-  .catch((err) => console.log(`Erreur de connexion MongoDB: ${err}`));
+const express = require('express');
+const morgan = require('morgan');
+const cookieParser = require('cookie-parser');
+const connectDB = require('./config/db');
 
 // Initialiser l'app
 const app = express();
+connectDB();
 
 // Configuration de sécurité
 app.use(helmet());
