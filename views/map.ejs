@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 500px;
+            width: 50%;
+        }
+    </style>
+  </head>
+  <body>
+    <input type="hidden" id="dataLongitude" value="<%= coordinate.longitude %>"/>
+    <input type="hidden" id="dataLatitude" value="<%= coordinate.latitude %>"/>
+    <input type="hidden" id="locationName" value="<%= coordinate.name %>"/>
+
+    <ul>
+      <li>Name: <%= coordinate.name %></li>
+    </ul>
+    <div id="map"></div>
+
+    <script src="<%= leafletJs %>"></script>
+    <script>
+      var longitude = document.getElementById("dataLongitude").value
+      var latitude = document.getElementById("dataLatitude").value
+      var locationName = document.getElementById("locationName").value
+      
+      var map = L.map('map').setView([latitude, longitude], 13);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      })
+      .addTo(map);
+
+      L.marker([latitude, longitude])
+      .addTo(map)
+      .bindPopup(locationName)
+      .openPopup();
+    </script>
+  </body>
+</html>
