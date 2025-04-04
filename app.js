@@ -26,10 +26,9 @@ app.set('view engine', 'ejs'); // ou 'pug'
 // Fichiers statiques
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Routes (à compléter)
-app.get('/', (req, res) => {
-  res.render('index', { title: 'Accueil' });
-});
+// Routes
+const homeRoutes = require('./routes.home')
+app.use('/', homeRoutes);
 
 // Port d'écoute
 const PORT = process.env.PORT || 3000;
