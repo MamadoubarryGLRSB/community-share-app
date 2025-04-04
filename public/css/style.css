@@ -1,0 +1,32 @@
+/* public/css/styles.css */
+
+.stars input {
+  display: none;
+}
+
+.stars label {
+  float: right;
+  font-size: 2rem;
+  color: lightgray;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.stars input:checked ~ label,
+.stars label:hover,
+.stars label:hover ~ label {
+  color: gold;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+}
+
+textarea,
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  margin-top: 4px;
+}

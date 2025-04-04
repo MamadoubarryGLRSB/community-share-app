@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CommunityShare</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Donner un avis sur un lieu visité !</h1>
+      <form action="/add" method="POST">
+        <label for="place">Nom du lieu :</label><br />
+        <input type="text" id="place" name="place" required /><br /><br />
+
+        <label for="comment">Commentaire :</label><br />
+        <textarea id="comment" name="comment" required></textarea><br /><br />
+
+        <label>Note :</label><br />
+        <div class="stars">
+          <input type="radio" id="star5" name="rating" value="5" /><label
+            for="star5"
+            >★</label
+          >
+          <input type="radio" id="star4" name="rating" value="4" /><label
+            for="star4"
+            >★</label
+          >
+          <input type="radio" id="star3" name="rating" value="3" /><label
+            for="star3"
+            >★</label
+          >
+          <input type="radio" id="star2" name="rating" value="2" /><label
+            for="star2"
+            >★</label
+          >
+          <input type="radio" id="star1" name="rating" value="1" /><label
+            for="star1"
+            >★</label
+          >
+        </div>
+        <br /><br />
+
+        <button type="submit">Envoyer</button>
+      </form>
+    </div>
+  </body>
+</html>
