@@ -1,0 +1,328 @@
+/* public/css/style.css */
+:root {
+  --primary-color: #4a6fa5;
+  --secondary-color: #e74c3c;
+  --background-color: #f8f9fa;
+  --card-bg: #ffffff;
+  --text-color: #333;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --border-radius: 8px;
+  --form-bg: #f1f3f4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow);
+}
+
+header h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.refresh-btn {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.refresh-btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.instructions {
+  background-color: #fff3cd;
+  border-left: 4px solid #ffc107;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+#map {
+  height: 500px;
+  width: 100%;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 1rem;
+}
+
+.coordinates-display {
+  background-color: var(--form-bg);
+  padding: 0.75rem;
+  border-radius: var(--border-radius);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.forms-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .forms-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-card {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.form-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.form-card h2 {
+  margin-bottom: 1.2rem;
+  color: var(--primary-color);
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #eee;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.alert-form h2 {
+  color: var(--secondary-color);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+label {
+  font-weight: 500;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+input,
+select {
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  background-color: var(--form-bg);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(74, 111, 165, 0.2);
+}
+
+select {
+  cursor: pointer;
+}
+
+button {
+  margin-top: 0.5rem;
+  padding: 0.8rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #3a5a84;
+}
+
+.alert-form button {
+  background-color: var(--secondary-color);
+}
+
+.alert-form button:hover {
+  background-color: #c0392b;
+}
+
+.alert-marker,
+.place-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Styles pour différents types de marqueurs */
+.marker-danger {
+  background-color: #e74c3c;
+}
+
+.marker-travaux {
+  background-color: #f39c12;
+}
+
+.marker-autre {
+  background-color: #3498db;
+}
+
+.marker-restaurant {
+  background-color: #e67e22;
+}
+
+.marker-bar {
+  background-color: #9b59b6;
+}
+
+.marker-magasin {
+  background-color: #2ecc71;
+}
+
+.marker-service {
+  background-color: #1abc9c;
+}
+
+.marker-autre {
+  background-color: #34495e;
+}
+
+.leaflet-popup-content {
+  padding: 5px;
+}
+
+.leaflet-popup-content h3 {
+  margin-bottom: 5px;
+  color: var(--primary-color);
+}
+
+.leaflet-popup-content p {
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+.pulse-marker {
+  border-radius: 50%;
+  height: 14px;
+  width: 14px;
+  transform: scale(1);
+  background: rgba(74, 111, 165, 0.5);
+  box-shadow: 0 0 0 0 rgba(74, 111, 165, 0.5);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(74, 111, 165, 0.7);
+  }
+
+  70% {
+    transform: scale(1.2);
+    box-shadow: 0 0 0 10px rgba(74, 111, 165, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(74, 111, 165, 0);
+  }
+}
+
+footer {
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+/* Modification pour agrandir la carte */
+#map {
+  height: 600px; /* Augmenté de 500px à 600px */
+  width: 100%;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 1.5rem;
+}
+
+/* Optimisation pour l'affichage des formulaires */
+.container {
+  max-width: 1400px; /* Augmenté pour un meilleur affichage sur grands écrans */
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+
+/* Ajout d'un peu d'espace au-dessus de la carte */
+.instructions {
+  margin-bottom: 1.5rem;
+}
+
+/* Rendre les contrôles de zoom plus visibles */
+.leaflet-control-zoom {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important;
+}
+
+.leaflet-control-zoom a {
+  font-size: 1.2rem !important;
+  font-weight: bold !important;
+  padding: 5px 7px !important;
+}

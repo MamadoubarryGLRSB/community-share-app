@@ -1,37 +1,35 @@
-const path = require('path');
-const bodyParser = require('body-parser');
-const helmet = require('helmet');
 const express = require('express');
-const morgan = require('morgan');
-const cookieParser = require('cookie-parser');
-const connectDB = require('./config/db');
+const path = require('path');
+const connectDB = require('./initDb');
 
-// Initialiser l'app
+// Initialisation de l'app
 const app = express();
+
+// Connexion à la base de données
 connectDB();
 
-// Configuration de sécurité
-app.use(helmet());
+// Configuration du moteur de template EJS
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 // Middleware
-app.use(morgan('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-
-// Configuration du moteur de template (choisir l'un des deux)
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs'); // ou 'pug'
-
-// Fichiers statiques
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
-const homeRoutes = require('./routes.home')
-app.use('/', homeRoutes);
+// app.js - Mettre à jour les chemins d'importation
+app.use('/api/places', require('./routes/place')); // Changé de places à place
+app.use('/api/alerts', require('./routes/alerts'));
 
-// Port d'écoute
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Serveur démarré sur le port ${PORT}`));
+// Route principale
+app.get('/', (req, res) => {
+  res.render('index');
+});
+
+// Gestion des erreurs 404
+app.use((req, res, next) => {
+  res.status(404).json({ message: 'Route non trouvée' });
+});
 
 module.exports = app;

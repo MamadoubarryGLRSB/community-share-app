@@ -1,11 +1,91 @@
+<!-- views/index.ejs -->
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
-    <title><%= title %></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Community Share App</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Bienvenue sur notre application communautaire!</p>
-    <div id="map"></div>
+    <header>
+      <h1><i class="fas fa-map-marked-alt"></i> Community Share</h1>
+      <button class="refresh-btn" onclick="location.reload()"><i class="fas fa-sync-alt"></i> Actualiser</button>
+    </header>
+
+    <div class="container">
+      <div class="instructions">
+        <p>
+          <i class="fas fa-info-circle"></i> <strong>Comment utiliser :</strong> Cliquez sur la carte pour placer un
+          marqueur et remplir automatiquement les coordonnées dans les formulaires.
+        </p>
+      </div>
+
+      <div id="map"></div>
+
+      <div class="coordinates-display" id="coordinates">
+        <i class="fas fa-location-arrow"></i> Position actuelle : Cliquez sur la carte pour définir les coordonnées
+      </div>
+
+      <div class="forms-container">
+        <div class="form-card">
+          <h2><i class="fas fa-store"></i> Ajouter un lieu</h2>
+          <form id="placeForm">
+            <input name="name" placeholder="Nom du lieu" required />
+            <input name="description" placeholder="Description" required />
+            <input name="address" placeholder="Adresse" required />
+            <div class="form-row">
+              <input id="place-lat" name="lat" placeholder="Latitude" required readonly />
+              <input id="place-lng" name="lng" placeholder="Longitude" required readonly />
+            </div>
+            <select name="category">
+              <option value="">-- Catégorie --</option>
+              <option value="restaurant">Restaurant</option>
+              <option value="bar">Bar</option>
+              <option value="magasin">Magasin</option>
+              <option value="service">Service</option>
+              <option value="autre">Autre</option>
+            </select>
+            <button type="submit"><i class="fas fa-plus-circle"></i> Ajouter ce lieu</button>
+          </form>
+        </div>
+
+        <div class="form-card alert-form">
+          <h2><i class="fas fa-exclamation-triangle"></i> Signaler une alerte</h2>
+          <form id="alertForm">
+            <input name="title" placeholder="Titre de l'alerte" required />
+            <input name="description" placeholder="Description" required />
+            <div class="form-row">
+              <input id="alert-lat" name="lat" placeholder="Latitude" required readonly />
+              <input id="alert-lng" name="lng" placeholder="Longitude" required readonly />
+            </div>
+            <select name="type" required>
+              <option value="">-- Type d'alerte --</option>
+              <option value="danger">Danger</option>
+              <option value="travaux">Travaux</option>
+              <option value="autre">Autre information</option>
+            </select>
+            <label for="duration"><i class="far fa-clock"></i> Durée de l'alerte:</label>
+            <select id="duration" name="duration">
+              <option value="1">1 jour</option>
+              <option value="3">3 jours</option>
+              <option value="7" selected>1 semaine</option>
+              <option value="14">2 semaines</option>
+              <option value="30">1 mois</option>
+            </select>
+            <button type="submit"><i class="fas fa-bell"></i> Signaler cette alerte</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 Community Share App</p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="/js/main.js"></script>
   </body>
 </html>
