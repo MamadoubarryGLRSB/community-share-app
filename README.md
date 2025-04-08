@@ -14,7 +14,7 @@ git clone https://github.com/votre-username/community-share-app.git
 cd community-share-app
 
 3-Installer les dépendances
-bashnpm install
+bash npm install
 
 4-Lancer MongoDB avec Docker
 docker run -d -p 27017:27017 -v mongodb_data:/data/db --name community-db mongo
@@ -27,7 +27,7 @@ npm start
 6-Tests
 Pour exécuter les tests:
 
-6-Accéder à l'application
+7-Accéder à l'application
 Ouvrez votre navigateur et accédez à l'URL:
 http://localhost:3000
 
