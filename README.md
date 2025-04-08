@@ -1,60 +1,49 @@
-🌍 Community Share App
-Community Share App est une application communautaire permettant aux utilisateurs de partager des informations utiles, des alertes temporaires ou encore des bonnes adresses. Le tout est affiché sur une carte interactive grâce à la géolocalisation.
+Community Share App
+Une application communautaire permettant de partager des informations, des alertes ou de bonnes adresses, avec géolocalisation sur une carte interactive.
+Technologies utilisées
 
-🚀 Technologies utilisées
-Node.js / Express — architecture MVC
+Node.js / Express (architecture MVC)
+MongoDB pour la persistance des données
+OpenStreetMap + Leaflet pour l'affichage cartographique
+Collections Time Series pour les alertes géolocalisées
 
-MongoDB — persistance des données, avec collections Time Series pour les alertes géolocalisées
+1-Installation et démarrage
 
-OpenStreetMap + Leaflet — affichage cartographique interactif
-
-⚙️ Installation et démarrage
-1. Cloner le repository
-bash
-Copier
+2-Cloner le repository
 git clone https://github.com/votre-username/community-share-app.git
 cd community-share-app
-2. Installer les dépendances
-bash
-Copier
-npm install
-3. Lancer MongoDB avec Docker
-bash
-Copier
+
+3-Installer les dépendances
+bashnpm install
+
+4-Lancer MongoDB avec Docker
 docker run -d -p 27017:27017 -v mongodb_data:/data/db --name community-db mongo
-💡 Si le conteneur existe déjà :
-
-bash
-Copier
+Si le conteneur existe déjà:
 docker start community-db
-4. Démarrer l’application
-bash
-Copier
+
+5-Démarrer l'application
 npm start
-5. Exécuter les tests
-Copier
-npm test
-🌐 Accéder à l'application
-Une fois le serveur lancé, ouvrez votre navigateur à l'adresse suivante :
 
-➡️ http://localhost:3000
+6-Tests
+Pour exécuter les tests:
 
-✨ Fonctionnalités principales
-📍 Carte interactive avec géolocalisation
+6-Accéder à l'application
+Ouvrez votre navigateur et accédez à l'URL:
+http://localhost:3000
 
-➕ Ajout de lieux d'intérêt par les utilisateurs
 
-🚧 Signalement d’alertes temporaires (dangers, travaux, etc.)
+Fonctionnalités
 
-🔁 Fonctionnalités CRUD complètes
+Visualisation d'une carte interactive
+Ajout de lieux d'intérêt géolocalisés
+Signalement d'alertes temporaires (dangers, travaux, etc.)
+Fonctionnalités CRUD complètes (création, lecture, modification, suppression)
+Interface responsive adaptée aux différents appareils
 
-📱 Interface responsive adaptée aux mobiles et tablettes
+Structure du projet
 
-🗂️ Structure du projet
-bash
-Copier
-/controllers   → Logique métier (contrôleurs Express)
-/models        → Modèles Mongoose (schémas MongoDB)
-/routes        → Définition des routes de l’API
-/views         → Templates EJS pour le rendu côté serveur
-/public        → Fichiers statiques (CSS, JS, images, etc.)
+/controllers : Logique métier de l'application
+/models : Modèles de données Mongoose
+/routes : Routes API Express
+/views : Templates EJS pour le rendu côté serveur
+/public : Fichiers statiques (CSS, JavaScript, images)
