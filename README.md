@@ -43,6 +43,8 @@ Si le conteneur existe déjà alors tapez : docker start community-db
 + Ajout de lieux d'intérêt géolocalisés.
 + Signalement d'alertes temporaires (dangers, travaux, etc.).
 + Fonctionnalités CRUD complètes (création, lecture, modification, suppression).
++ Ajout d'une CI/CD pour automatiser le build
++ Ajout des Tests
 + Interface responsive adaptée aux différents appareils.
 
 ------------------------------------------------------------------------------------------------------------
